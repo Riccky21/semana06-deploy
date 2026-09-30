@@ -1,5 +1,6 @@
 package com.empresa.security;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -55,7 +56,7 @@ public class SecurityConfig   {
         .csrf(csrf -> csrf.disable())
     	.exceptionHandling(exp -> exp.authenticationEntryPoint(jwtEntryPoint))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests(auth -> auth.requestMatchers("/url/auth/**").permitAll()
+        .authorizeHttpRequests(auth -> auth.requestMatchers("/url/libro/**").permitAll()
 
         .anyRequest()
         .authenticated());
