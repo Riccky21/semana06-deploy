@@ -56,7 +56,7 @@ public class SecurityConfig   {
         .csrf(csrf -> csrf.disable())
     	.exceptionHandling(exp -> exp.authenticationEntryPoint(jwtEntryPoint))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests(auth -> auth.requestMatchers("/url/libro/**").permitAll()
+        .authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.GET, "/url/libro/**").permitAll()
 
         .anyRequest()
         .authenticated());
